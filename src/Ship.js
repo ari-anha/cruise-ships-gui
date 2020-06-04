@@ -1,30 +1,36 @@
-class Ship {
-    constructor(itinerary) {
-        this.itinerary = itinerary;
-        this.currentPort = itinerary.ports[0];
-        this.previousPort = null;
-        this.currentPort.addShip(this);
-    };
+(function exportPort() {
+    class Ship {
+        constructor(itinerary) {
+            this.itinerary = itinerary;
+            this.currentPort = itinerary.ports[0];
+            this.previousPort = null;
+            this.currentPort.addShip(this);
+        };
 
-    setSail() {
-        const currentPortIndex = this.itinerary.ports.indexOf(this.currentPort);
+        setSail() {
+            const currentPortIndex = this.itinerary.ports.indexOf(this.currentPort);
 
-        if (currentPortIndex === (this.itinerary.ports.length - 1)) {
-            throw new Error("End of itinerary reached");
-        }
+            if (currentPortIndex === (this.itinerary.ports.length - 1)) {
+                throw new Error("End of itinerary reached");
+            }
 
-        this.previousPort = this.currentPort;
-        this.currentPort = null;
+            this.previousPort = this.currentPort;
+            this.currentPort = null;
 
-        this.previousPort.removeShip(this);
-    };
+            this.previousPort.removeShip(this);
+        };
 
-    dock() {
-        const previousPortIndex = this.itinerary.ports.indexOf(this.previousPort);
+        dock() {
+            const previousPortIndex = this.itinerary.ports.indexOf(this.previousPort);
         
-        this.currentPort = this.itinerary.ports[previousPortIndex + 1];
-        this.currentPort.addShip(this);
+            this.currentPort = this.itinerary.ports[previousPortIndex + 1];
+            this.currentPort.addShip(this);
+        };
     };
-};
 
-module.exports = Ship;
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = Ship;
+    } else {
+        window.Ship = Ship;
+    }
+}());
