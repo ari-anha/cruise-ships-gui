@@ -1,8 +1,43 @@
 html, body {
     height: 100%;
+    background-color: black;
 }
 
-body {
+header {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+h1 {
+    height: 20px;
+    color: white
+}
+
+ul {
+    font-size: 15px;
+    list-style-type: none;
+}
+
+p {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+    color: rgb(128, 255, 249);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    background-color: black;
+}
+
+#display {
+    width: 100%;
+    height: 45px;
+    background-color: black;
+    color: #FB3640;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#shipscreen {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +54,7 @@ body {
 
 #ports {
     margin-top: 96px;
+    margin-left: 30px;
     display: flex;
     justify-content: space-around;
 }
@@ -56,7 +92,7 @@ body {
     padding-top: 14px;
 }
 
-#message{
+#message {
     padding: 16px;
     font-family: 'Press Start 2P', cursive;
     position: absolute;
