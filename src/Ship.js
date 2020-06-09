@@ -7,21 +7,21 @@
 
             if (this.currentPort) {
             this.currentPort.addShip(this);
-            }
-        };
+            };
+        }
 
         setSail() {
             const currentPortIndex = this.itinerary.ports.indexOf(this.currentPort);
 
             if (currentPortIndex === (this.itinerary.ports.length - 1)) {
-                throw new Error("End of itinerary reached");
+                throw new Error("We have reached our last port.");
             }
 
             this.previousPort = this.currentPort;
             this.currentPort = null;
 
             this.previousPort.removeShip(this);
-        };
+        }
 
         dock() {
             const previousPortIndex = this.itinerary.ports.indexOf(this.previousPort);

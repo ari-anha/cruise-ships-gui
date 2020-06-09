@@ -18,6 +18,10 @@ ul {
     list-style-type: none;
 }
 
+form {
+    color: white;
+}
+
 p {
     width: 60%;
     margin-left: 20%;

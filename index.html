@@ -13,6 +13,18 @@
 
     <header>
         <h1>Cruise ship</h1>
+        <br><br><br>
+        <div>
+            <form >
+                <h4>Add port</h4>
+                <div>
+                    <input id="input" placeholder="Port name" required>
+                </div>
+                <div>
+                    <button id="addButton">Add</button>
+                </div>
+            </form>
+        </div>
         <div id="display">
             <ul>
                 <li id="displayCurrPort"></li>
@@ -36,6 +48,7 @@
     
         <script>
             const itinerary = new Itinerary([
+                /*
                 new Port("Otaru"),
                 new Port("Hakodate"),
                 new Port("Ishinomaki"),
@@ -48,12 +61,13 @@
                 new Port("Hakata"),
                 new Port("Kumamoto"),
                 new Port("Naha"),
+                */
             ]);
             const ship = new Ship(itinerary);
             const controller = new Controller(ship);
 
-            controller.renderPorts(itinerary.ports);
-            controller.renderShip(ship)
+            //controller.renderPorts(itinerary.ports);
+            //controller.renderShip(ship)
 ;        </script>
     </div>
 

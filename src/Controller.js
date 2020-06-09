@@ -9,7 +9,14 @@
             this.setSail();
         });
 
-        this.createDisplay();
+        document.querySelector("#addButton").addEventListener("click", (e) => {
+            e.preventDefault();
+            this.addPort();
+            this.renderPorts(ship.itinerary.ports);
+            this.renderShip();
+            this.createDisplay();
+            document.getElementById("input").value = "";
+          });
 
     };
 
@@ -112,9 +119,27 @@
         if (nextPortIndex < ship.itinerary.ports.length) {
             nextPortElement.innerHTML = `Next Port: ${ship.itinerary.ports[nextPortIndex].name}`;
         } else {
-        nextPortElement.innerHTML = "End of our journey!"
+            nextPortElement.innerHTML = "End of our journey!"
         };
     }
+
+    addPort() {
+        const ship = this.ship;
+  
+        const newPort = document.getElementById("input").value;
+  
+        const portObject = new Port(newPort);
+  
+        if (newPort === "") {
+          return this.renderMessage("Please add a port name to procceed!");
+        }
+
+        ship.itinerary.ports.push(portObject);
+  
+        if (!ship.currentPort) {
+          ship.currentPort = ship.itinerary.ports[0];
+        }
+      }
 
 }
 
