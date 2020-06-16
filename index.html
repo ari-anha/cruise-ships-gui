@@ -11,72 +11,59 @@
 </head>
 <body>
 
-    <header>
-        <h1>Cruise ship</h1>
-        <br><br><br>
-        <div>
-            <form >
-                <h4>Add port</h4>
-                <div>
-                    <input id="input" placeholder="Port name" required>
-                </div>
-                <div>
-                    <button id="addButton">Add</button>
-                </div>
-            </form>
-        </div>
-        <div id="display">
-            <ul>
-                <li id="displayCurrPort"></li>
-                <li id="displayNextPort"></li>
-            </ul>
-        </div>
-    </header>
+    <div id=form>
+        <form>
+            <h4>Add port</h4>
+            <div>
+                <input id="input" placeholder="Port name" required>
+            </div>
+            <div>
+                <button id="addButton">Add</button>
+            </div>
+        </form>
+    </div> 
 
-
-    <div id="shipscreen">
-        <div id="viewport">
-            <div id="ports"></div>
-            <div id="ship"></div>
-            <button id="sailbutton">Set Sail!</button>
-        </div>
-    
-        <script src="src/Controller.js"></script>
-        <script src="src/Ship.js"></script>
-        <script src="src/Itinerary.js"></script>
-        <script src="src/Port.js"></script>
-    
-        <script>
-            const itinerary = new Itinerary([
-                /*
-                new Port("Otaru"),
-                new Port("Hakodate"),
-                new Port("Ishinomaki"),
-                new Port("Tokyo"),
-                new Port("Yokohama"),
-                new Port("Shimizu"),
-                new Port("Nagoya"),
-                new Port("Osaka"),
-                new Port("Kobe"),
-                new Port("Hakata"),
-                new Port("Kumamoto"),
-                new Port("Naha"),
-                */
-            ]);
-            const ship = new Ship(itinerary);
-            const controller = new Controller(ship);
-
-            //controller.renderPorts(itinerary.ports);
-            //controller.renderShip(ship)
-;        </script>
+    <div id="viewport">
+        <div id="ports"></div>
+        <div id="ship"></div>
+        <button id="sailbutton">Set Sail!</button>
     </div>
 
-    <div>
-        <p>
-            You are the captain of a cruise ship. Click 'Set Sail!'
-            and take your customers on a fancy cruise around Japan!
-        </p>
+    <div id="display">
+        <ul>
+            <li id="displayCurrPort"></li>
+            <li id="displayNextPort"></li>
+        </ul>
     </div>
+    
+    <script src="src/Controller.js"></script>
+    <script src="src/Ship.js"></script>
+    <script src="src/Itinerary.js"></script>
+    <script src="src/Port.js"></script>
+
+    <script>
+        const itinerary = new Itinerary([
+/*
+            new Port("Otaru"),
+            new Port("Hakodate"),
+            new Port("Ishinomaki"),
+            new Port("Tokyo"),
+            new Port("Yokohama"),
+            new Port("Shimizu"),
+            new Port("Nagoya"),
+            new Port("Osaka"),
+            new Port("Kobe"),
+            new Port("Hakata"),
+            new Port("Kumamoto"),
+            new Port("Naha"),
+*/
+        ]);
+        const ship = new Ship(itinerary);
+        const controller = new Controller(ship);
+
+        controller.renderPorts(itinerary.ports);
+        controller.renderShip(ship);
+    </script>
 
 </body>
 </html>
